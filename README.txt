@@ -1,4 +1,4 @@
-pcapsipdump version 0.2-trunk
+pcapsipdump version 0.2
 
 Usage: pcapsipdump [-fpUt] [-i <interface> | -r <file>] [-d <working directory>]
                    [-v level] [-R filter] [-n filter] [-l filter] [-B size]
