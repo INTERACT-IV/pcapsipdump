@@ -1,13 +1,20 @@
 Summary: PCAP SIP Dump tool
 Name: pcapsipdump
 Distribution: RedHat
+
 Version: 0.2
-Release: 2
+Release: %{_iv_pkg_release}%{?dist}
 License: GPL v2
+
 Group: Utilities/System
 Vendor: pcapsipdump.sf.net
 BuildRoot: /var/tmp/%{name}-%{version}
 Source: %{name}-%{version}.tar.gz
+
+BuildRequires:	gcc-c++ make
+BuildRequires:	libpcap libpcap-devel
+
+Requires:   libpcap
 
 %description
 pcapsipdump is a tool for dumping SIP sessions (+RTP
@@ -20,7 +27,7 @@ concurrent SIP sessions).
 %setup
 
 %build
-make
+make DEFS=-DUSE_REGEXP
 
 %install
 mkdir -p $RPM_BUILD_ROOT/usr/sbin $RPM_BUILD_ROOT/etc/sysconfig $RPM_BUILD_ROOT/etc/rc.d/init.d $RPM_BUILD_ROOT/var/spool
